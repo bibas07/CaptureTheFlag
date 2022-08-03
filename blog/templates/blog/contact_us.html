@@ -1,0 +1,40 @@
+{% extends "blog/main_template.html" %}
+{% block content %}
+<div class="container">
+    <h3>Contact Form</h3><br />
+        <form class="row g-3" method="post">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="row text-center">
+            <div class="col-sm-12 col-lg-12">
+              <div class="alert alert-{{message.tags}}" role="alert">
+              {{message}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+          <div class="row text-center">
+            <div class="col-sm-12">
+              <form method="POST">
+                {% csrf_token %}
+                {{contact_form.as_p}}
+              <button type="submit" class="btn btn-primary m-2"> Subscribe </button>
+            </form>
+          </div>
+        </div>
+          </form><br>
+
+    <h3> Location: </h3>
+    <iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/place/Paras+Restaurant/@26.7909286,86.682092,15z/data=!4m9!1m2!2m1!1sparas+restaurant!3m5!1s0x39eec3752da8951b:0xcea7df5c360dda64!8m2!3d26.7909286!4d86.6996015!15sChBwYXJhcyByZXN0YXVyYW50WhIiEHBhcmFzIHJlc3RhdXJhbnSSAQpyZXN0YXVyYW50"
+  allowfullscreen>
+</iframe>
+
+</div><br><br>
+
+{% endblock %}

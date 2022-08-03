@@ -1,0 +1,37 @@
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    margin-left: 60% !important;
+}
+body{
+    background-color: rgb(34, 33, 33);
+}
+.wrapper{
+    background-color: white;
+}
+.small-box-db{
+  background-color: rgb(24, 62, 95);
+  height: 100px;
+  width: 200px;
+  border: 1px solid transparent;
+  color: aliceblue;
+  font-weight: bold;
+  margin: 2em;
+  text-align: center;
+  padding-top: 2em;
+  cursor:pointer;
+}
+.small-box-db:hover{
+    background-color: rgb(92, 79, 95);
+    transition-duration: 2s;
+    border: 1px solid rgb(218, 213, 213);
+}
+.gray-border{
+    background-color: rgb(229, 230, 231);
+    border: 1px solid rgb(165, 145, 145);
+    border-radius: 10px;
+}
+.gray-border:hover{
+    background-color: rgb(153, 149, 149);
+}

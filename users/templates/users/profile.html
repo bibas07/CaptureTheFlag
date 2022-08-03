@@ -1,0 +1,63 @@
+{% extends 'blog/main_template.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">{{message}}</div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {% if user.is_authenticated %}    
+        <div class="row center">
+            <div class="col-sm-5">
+                <h3> Profile Information </h3>
+                <a href="{% url 'userinfo'%}" class="btn btn-primary">Edit Profile</a>
+            </div>
+            {% if user_info %}
+            <div class="col-sm-7">
+                {% for uinfo in user_info %}
+                <h4>Full Name: {{uinfo.first_name}} {{uinfo.last_name}}<br />  Username: {{user.username}} <br /> Email: {{uinfo.email}}</h4>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+        </div>
+        
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary"> Upload Image</button>
+    </form>
+    <br />
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <h2 class="text-center">Gallery</h2>
+            <div class="row">
+                {% for image in user_images %}
+            <div class="col-sm-3">
+                    <img src="{{image.user_profile.url}}" class="img-thumbnail m-4" width="100%" />
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+    
+    {% else %} 
+    <div class="row">
+        <div class="col-lg">
+            <div class="alert alert-warning text-center">
+                You must have <a href = "{% url 'signin' %}"> logged in </a> 
+            </div>
+        </div>
+    </div>
+    {% endif %}<br />
+    
+</div>
+
+{% endblock %}
