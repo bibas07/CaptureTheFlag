@@ -1,2 +1,2 @@
-# CTF
-Capture The Flag designed and developed by Bibas Koirala using Python3/Django and Bootstrap Framework
+# CTF 
+Capture The Flag designed to beginner who are interested in ethical hacking. This includes basic web vulnerability 
